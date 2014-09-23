@@ -23,14 +23,21 @@ class BigInteger
 
 
 public:
+	BigInteger()
+	{
+		start = NULL;
+		last = NULL;
+	}
 	BigInteger(int num)
 	{
 		start = NULL;
+		last = NULL;
 		setNumber(num);
 	}
 	BigInteger(string num)
 	{
 		start = NULL;
+		last = NULL;
 		setNumber(num);
 	}
 
@@ -57,10 +64,59 @@ public:
 	{
 		reset();
 		int n = num.length();
-		for (int i = 0; i < n; i++)
+		//chon list 2peyvandi nist , lazeme ke addad ro az akhar b aval dar list negah darim ta moshkeli dar jam va zarb pish nayad
+		for (int i = n-1; i >= 0; i--)
 		{
 			add(num[i] - '0');
 		}
+	}
+
+	BigInteger operator+(BigInteger num2)
+	{
+		Node<int> * a = start;
+		Node<int> * b = num2.start;
+		BigInteger result;
+		int carry = 0;
+		int temp;
+
+		while (a != NULL && b != NULL)
+		{
+			temp = a->value + b->value +carry;
+			if (temp >= 10)
+			{
+				temp = temp - 10;
+				carry = 1;
+			}
+			else
+			{
+				carry = 0;
+			}
+			result.add(temp);
+			a = a->next;
+			b = b->next;
+		}//while
+
+		while (a != NULL)
+		{
+			temp = a->value + carry;
+			carry = 0;
+			result.add(temp);
+			a = a->next;
+		}//while
+
+		while (b != NULL)
+		{
+			temp = b->value + carry;
+			carry = 0;
+			result.add(temp);
+			b = b->next;
+		}//while
+
+		if (carry == 1)
+		{
+			result.add(1);
+		}
+		return result;
 	}
 
 private:
@@ -103,10 +159,18 @@ std::ostream & operator <<(std::ostream& os, BigInteger & lst)
 	Node<int> * link = lst.start;
 	if (lst.isEmpty())
 		os << "No Number";
+	stringstream ss;
 	while (link != NULL)
 	{
-		os << link->value;
+		ss << link->value;
 		link = link->next;
 	}
+	string result = ss.str();
+	int n = result.length();
+	for (int i = n - 1; i >= 0; i--)
+	{
+		os << result[i];
+	}
+	
 	return os;
 }
