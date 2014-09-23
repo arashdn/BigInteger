@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BigInteger", "BigInteger\BigInteger.vcxproj", "{7F4C87A4-8994-4BCD-BB73-539B045280DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F4C87A4-8994-4BCD-BB73-539B045280DB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7F4C87A4-8994-4BCD-BB73-539B045280DB}.Debug|Win32.Build.0 = Debug|Win32
+		{7F4C87A4-8994-4BCD-BB73-539B045280DB}.Release|Win32.ActiveCfg = Release|Win32
+		{7F4C87A4-8994-4BCD-BB73-539B045280DB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
