@@ -119,6 +119,48 @@ public:
 		return result;
 	}
 
+
+	BigInteger operator* (BigInteger num2)
+	{
+		Node<int> * a = start;
+		Node<int> *b ;
+
+		BigInteger result(0);
+		BigInteger temp(0);
+		int level = 0;
+		int carry = 0;
+		int tempProduct;
+		while (a != NULL)
+		{
+			temp.reset();
+			b = num2.start;
+			for (int i = 0; i < level; i++)
+			{
+				temp.add(0);
+			}
+
+			while (b != NULL)
+			{
+				tempProduct = ((a->value)*(b->value))+carry;
+				temp.add(tempProduct % 10);
+				carry = tempProduct / 10;
+				b = b->next;
+			}
+			if (carry != 0)
+			{
+				temp.add(carry);
+				carry = 0;
+			}
+			level++;
+			result = result + temp; //Do we need copy cunstructor???
+			a = a->next;
+
+		}//while a
+
+		
+		return result;
+	}//opertator *
+
 private:
 	Node<int> * start;
 	Node<int> * last;
@@ -126,6 +168,7 @@ private:
 	{
 		delete[] start;
 		start = NULL;
+		last = NULL;
 	}
 	void add(int value)
 	{
