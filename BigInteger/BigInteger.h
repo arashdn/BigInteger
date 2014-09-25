@@ -4,6 +4,7 @@
 #include <sstream>
 using namespace std;
 
+class BigInteger;//prototype to add friend class in node
 
 template <class T>
 class Node
@@ -13,13 +14,13 @@ private:
 	Node * next;
 
 	friend class BigInteger;
-	friend std::ostream & operator <<(std::ostream& os, BigInteger &lst);
+	friend std::ostream & operator <<(std::ostream& os, BigInteger lst);
 };
 
 class BigInteger
 {
 
-	friend std::ostream & operator <<(std::ostream& os, BigInteger &lst);
+	friend std::ostream & operator <<(std::ostream& os, BigInteger lst);
 
 
 public:
@@ -189,7 +190,7 @@ private:
 };
 
 
-std::ostream & operator <<(std::ostream& os, BigInteger & lst)
+std::ostream & operator <<(std::ostream& os, BigInteger lst)
 {
 	Node<int> * link = lst.start;
 	if (lst.isEmpty())
