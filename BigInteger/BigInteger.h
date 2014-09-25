@@ -82,16 +82,8 @@ public:
 		while (a != NULL && b != NULL)
 		{
 			temp = a->value + b->value +carry;
-			if (temp >= 10)
-			{
-				temp = temp - 10;
-				carry = 1;
-			}
-			else
-			{
-				carry = 0;
-			}
-			result.add(temp);
+			carry = temp / 10;
+			result.add(temp%10);
 			a = a->next;
 			b = b->next;
 		}//while
@@ -99,16 +91,16 @@ public:
 		while (a != NULL)
 		{
 			temp = a->value + carry;
-			carry = 0;
-			result.add(temp);
+			carry = temp/10;
+			result.add(temp%10);
 			a = a->next;
 		}//while
 
 		while (b != NULL)
 		{
 			temp = b->value + carry;
-			carry = 0;
-			result.add(temp);
+			carry = temp/10;
+			result.add(temp%10);
 			b = b->next;
 		}//while
 

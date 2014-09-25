@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-	BigInteger a(12345);
-	BigInteger b(5234);
+	BigInteger a(123456);
+	BigInteger b(5238);
 	cout << "a= " << a << endl
 		<< "b= " << b << endl
 		<< "a+b = " << a + b << endl
